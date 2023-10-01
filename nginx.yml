@@ -1,0 +1,17 @@
+---
+
+- hosts: ubuntu_servers
+  become: true
+  pre_tasks:
+
+  - name: update repositories and upgrade packages
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: install nginx
+    apt:
+      name:
+        - nginx
+      update_cache: yes
+      state: latest
